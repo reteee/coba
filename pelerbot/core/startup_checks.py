@@ -13,7 +13,7 @@ async def check_or_set_log_channel():
         else:
             log_channel = await SANSBOT.create_channel(title="Peler Userbot Logs", description="Logs of your Peler Userbot")
             welcome_to_nexaub = f"""
-**Heya! I am Peler Userbot**
+**Hi! I am Peler Userbot**
  If you found any error, bug or even a Feature Request please report it at **@PelerSupport**
 **⌲ Quick Start,**
 If you don't know how to use this Userbot please send `{Config.CMD_PREFIX}help` in any chat. It'll show all plugins your userbot has. You can use those plugin names to get info about how to use it. Also check out.
@@ -23,7 +23,7 @@ If you don't know how to use this Userbot please send `{Config.CMD_PREFIX}help` 
             await SANSBOT.send_message(chat_id=log_channel_id, text=welcome_to_nexaub, disable_web_page_preview=True)
             return [True, log_channel_id]
     except Exception as e:
-        print(f"Error \n\n{e} \n\nPlease check all variables and try again! \nReport this with logs at @NexaBotSupport if the problem persists!")
+        print(f"Error \n\n{e} \n\nPlease check all variables and try again! \nReport this with logs at @PelerSupport if the problem persists!")
         exit()
 
 
