@@ -2,14 +2,14 @@ from pyrogram.types import Message
 from pelerbot.sclient import PelerBot
 
 
-def ReplyCheck(m: Message):
+def ReplyCheck(message: Message):
     reply_id = None
 
-    if m.reply_to_message:
-        reply_id = m.reply_to_message.message_id
+    if message.reply_to_message:
+        reply_id = message.reply_to_message.message_id
 
-    elif not m.from_user.is_self:
-        reply_id = m.message_id
+    elif not message.from_user.is_self:
+        reply_id = message.message_id
 
     return reply_id
 
