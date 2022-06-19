@@ -9,10 +9,10 @@ class Config:
     MAX_MESSAGE_LENGTH = 4096
     COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", ".")
     TMP_DOWNLOAD_DIRECTORY = os.environ.get(
-        "TMP_DOWNLOAD_DIRECTORY", "/root/telepyrobot/downloads/"
+        "TMP_DOWNLOAD_DIRECTORY", "/root/pelerbot/Downloads"
     )
     OFFICIAL_UPSTREAM_REPO = os.environ.get(
-        "OFFICIAL_UPSTREAM_REPO", "https://github.com/SkuzzyxD/TelePyroBot.git"
+        "OFFICIAL_UPSTREAM_REPO", None
     )
     DATABASE_URL = os.environ.get("DATABASE_URL", None)
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
