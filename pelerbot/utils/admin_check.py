@@ -1,9 +1,9 @@
-from pelerbot.sclient import PelerBot
+from pyrogram import Client
 from pyrogram.types import Message
 import asyncio
 
 
-async def admin_check(c: PelerBot, m: Message):
+async def admin_check(client: Client, message: Message):
     chat_id = m.chat.id
     user_id = m.from_user.id
 
