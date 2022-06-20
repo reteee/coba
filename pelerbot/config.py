@@ -1,7 +1,7 @@
 import os
 
 
-class Config:
+
     LOGGER = True
     APP_ID = int(os.environ.get("APP_ID", "13135189"))
     API_HASH = os.environ.get("API_HASH", "42186d1f48bd4d3c8233b269763b1361")
