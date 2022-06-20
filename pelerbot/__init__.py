@@ -73,7 +73,7 @@ def load_cmds(ALL_PLUGINS):
     for oof in ALL_PLUGINS:
         if oof.lower() == "help":
             continue
-        imported_module = importlib.import_module("telepyrobot.plugins." + oof)
+        imported_module = importlib.import_module("pelerbot.plugins." + oof)
         if not hasattr(imported_module, "__PLUGIN__"):
             imported_module.__PLUGIN__ = imported_module.__name__
 
