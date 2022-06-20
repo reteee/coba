@@ -4,6 +4,7 @@ from pyrogram import Client , filters
 from pyrogram.types import Message
 from pelerbot.utils.gban_errors import *
 from pelerbot.utils.basic import *
+from pelerbot import COMMAND_HANDLER
 
 __PLUGIN__ = os.path.basename(__file__.replace(".py", ""))
 
@@ -13,7 +14,7 @@ Manage Tasks with your userbot easily, great plugin for people to manage their c
 Usage: {COMMAND_HANDLER}gikes (input or reply to message)
 """
 
-@Client.on_message(filters.me & filters.command("gikes", ["~", "!", "°"]))
+@Client.on_message(filters.me & filters.command("gikes", COMMAND_HANDLER))
 async def gbroadcast(client: Client, message: Message):
     if text_ := get_text(message):
         msg = text_
