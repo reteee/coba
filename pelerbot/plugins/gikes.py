@@ -2,8 +2,8 @@ import asyncio
 from pyrogram.errors import FloodWait
 from pyrogram import Client , filters
 from pyrogram.types import Message
-from helpers.gban_errors import iter_chats
-from helpers.basic import get_text
+from pelerbot.utils.gban_errors import *
+from pelerbot.utils.basic import *
 
 __PLUGIN__ = os.path.basename(__file__.replace(".py", ""))
 
@@ -11,7 +11,7 @@ __help__ = f"""
 Manage Tasks with your userbot easily, great plugin for people to manage their chats.
 `{COMMAND_HANDLER}gikes`: Global Broadcast to the Group.
 Usage: {COMMAND_HANDLER}gikes (input or reply to message)
-
+"""
 
 @Client.on_message(filters.me & filters.command("gikes", ["~", "!", "°"]))
 async def gbroadcast(client: Client, message: Message):
