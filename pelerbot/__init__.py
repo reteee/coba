@@ -128,7 +128,7 @@ def load_cmds(ALL_PLUGINS):
             HELP_COMMANDS[imported_module.__PLUGIN__.lower()] = imported_module.__help__
     return "Done Loading Plugins and Commands!"
 
-
+bottime = time.time()
   
 if not STRING_SESSION1:
     logging.error("No String Session Found! Exiting!")
