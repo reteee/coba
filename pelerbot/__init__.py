@@ -25,9 +25,9 @@ aiohttpsession = ClientSession()
 
 # Configuration Things
 if bool(os.environ.get("ENV", False)):
-    from telepyrobot.sample_config import Config
+    from pelerbot.sample_config import Config
 else:
-    from telepyrobot.config import Development as Config
+    from pelerbot.config import Development as Config
 
 
 LOGGER = logging.getLogger(__name__)
