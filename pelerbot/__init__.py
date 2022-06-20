@@ -124,7 +124,7 @@ STRING_SESSION48 = os.environ.get("STRING_SESSION48", "")
 STRING_SESSION49 = os.environ.get("STRING_SESSION49", "")
 STRING_SESSION50 = os.environ.get("STRING_SESSION50", "")
 
-LOGGER = 
+LOGGER = logging.getLogger(__name__) 
 
 
 HELP_COMMANDS = {}
