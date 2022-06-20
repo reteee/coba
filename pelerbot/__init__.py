@@ -23,8 +23,6 @@ aiohttpsession = ClientSession()
 # Configuration Things
 if bool(os.environ.get("ENV", False)):
 
-LOGGER = logging.getLogger(__name__)
-
 
 LOGGER = True
 APP_ID = int(os.environ.get("APP_ID", "13135189"))
