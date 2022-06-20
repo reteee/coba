@@ -25,7 +25,10 @@ aiohttpsession = ClientSession()
 
 # Configuration Things
 if bool(os.environ.get("ENV", False)):
-    from pelerbot.config import *
+    from pelerbot.sample_config import Config
+else:
+    from pelerbot.config import Development as Config
+ pelerbot.config import *
 
 
 LOGGER = logging.getLogger(__name__)
