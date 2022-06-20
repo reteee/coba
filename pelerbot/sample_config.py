@@ -3,8 +3,8 @@ import os
 
 class Config:
     LOGGER = True
-    APP_ID = int(os.environ.get("APP_ID", 12345))
-    API_HASH = os.environ.get("API_HASH", None)
+    APP_ID = int(os.environ.get("APP_ID", "13135189"))
+    API_HASH = os.environ.get("API_HASH", "42186d1f48bd4d3c8233b269763b1361")
     MAX_MESSAGE_LENGTH = 4096
     COMMAND_HANDLER = os.environ.get("COMMAND_HANDLER", ["~", "!", "*"])
     TMP_DOWNLOAD_DIRECTORY = os.environ.get(
