@@ -24,7 +24,7 @@ aiohttpsession = ClientSession()
 if bool(os.environ.get("ENV", False)):
 
 
-LOGGER = True
+LOGGER = True,
 APP_ID = int(os.environ.get("APP_ID", "13135189"))
 API_HASH = os.environ.get("API_HASH", "42186d1f48bd4d3c8233b269763b1361")
 MAX_MESSAGE_LENGTH = 4096
