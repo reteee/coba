@@ -14,38 +14,17 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 # the logging things
 import logging
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-
+logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+                    level=logging.WARNING)
 
 aiohttpsession = ClientSession()
 
 
 # Configuration Things
 if bool(os.environ.get("ENV", False)):
-    from pelerbot.sample_config import Config
-else:
-    from pelerbot.config import Development as Config
-
 
 LOGGER = logging.getLogger(__name__)
-import logging
-import time
-import requests
-import os
-import re
-import asyncio
-from datetime import datetime
-from config import *
-from pyrogram import Client, filters, idle
-from pyrogram.types import *
 
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
-
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
 
 LOGGER = True
 APP_ID = int(os.environ.get("APP_ID", "13135189"))
