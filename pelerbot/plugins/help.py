@@ -32,7 +32,7 @@ async def module_help(client: Client, message: Message):
         all_commands = ""
         all_commands += "Please specify which module you want help for!! \nUsage: `.help [module_name]`\n\n"
 
-        ac = PrettyTable()
+        ac = PrettyTable
         ac.header = False
         ac.title = "👉🏽Peler Modules👈🏽"
         ac.footer = "prefix = ~,!,°"
