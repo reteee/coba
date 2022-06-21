@@ -38,7 +38,7 @@ async def module_help(client: Client, message: Message):
     if help_arg:
         if help_arg in HELP_COMMANDS:
             commands: dict = HELP_COMMANDS[help_arg]
-            this_command = f"<b>Help For Command</b>\n"
+            this_command = "**> Help For Command <**\n"
             this_command += heading.format(str(help_arg)).upper()
 
             for x in commands:
