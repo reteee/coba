@@ -31,5 +31,5 @@ def __list_all_plugins():
 
 
 ALL_PLUGINS = sorted(__list_all_plugins())
-LOGS.info("Modules To Load : %s", str(ALL_PLUGINS))
+LOGGER.info("Modules To Load : %s", str(ALL_PLUGINS))
 __all__ = ALL_PLUGINS + ["ALL_PLUGINS"]
