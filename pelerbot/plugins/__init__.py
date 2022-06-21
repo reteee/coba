@@ -22,7 +22,7 @@ def __list_all_plugins():
                 LOGGER.error("Nama Modules yang anda masukan salah.")
                 sys.exit(1)
         else:
-            to_load = all_modules
+            to_load = all_plugins
         if NO_LOAD:
             LOGGER.info("Modules No Load : {}".format(NO_LOAD))
             return [item for item in to_load if item not in NO_LOAD]
