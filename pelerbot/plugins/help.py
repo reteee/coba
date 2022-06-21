@@ -14,6 +14,9 @@ Get a list of all Plugins using:
 `{COMMAND_HANDLER}help`
 """
 
+heading = "🖕🏽 **{0}** 🖕🏽\n"
+
+
 @Client.on_message(filters.command("help", COMMAND_HANDLER) & filters.me)
 async def module_help(client: Client, message: Message):
     cmd = message.command
@@ -29,7 +32,7 @@ async def module_help(client: Client, message: Message):
 
         ac = EMOJI_HELP 
         
-        await message.edit(f"```{str(ac) + ALL_PLUGINS}```")
+        await message.edit(f"```{str(ac)}```")
         
     if help_arg:
         if help_arg in HELP_COMMANDS:
