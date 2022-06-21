@@ -3,7 +3,7 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pelerbot.plugins import ALL_PLUGINS
-from pelerbot.utils import *
+from pelerbot.utils.basic import *
 from pelerbot import *
 
 
