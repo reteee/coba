@@ -4,6 +4,7 @@ import requests
 import re
 import asyncio
 import importlib
+from prettytable import PrettyTable
 from datetime import datetime
 from aiohttp import ClientSession
 from pyrogram import Client, filters, idle
@@ -19,7 +20,7 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
                     level=logging.WARNING)
 
 aiohttpsession = ClientSession()
-
+PrettyTable = PrettyTable()
 
 # Configuration Things
 if os.path.exists("local.env"):
