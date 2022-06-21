@@ -5,14 +5,7 @@ from pyrogram.types import Message
 from pelerbot.utils.gban_errors import *
 from pelerbot.utils.basic import *
 from pelerbot import COMMAND_HANDLER
-
-__PLUGIN__ = os.path.basename(__file__.replace(".py", ""))
-
-__help__ = f"""
-Manage Tasks with your userbot easily, great plugin for people to manage their chats.
-`{COMMAND_HANDLER}gikes`: Global Broadcast to the Group.
-Usage: {COMMAND_HANDLER}gikes (input or reply to message)
-"""
+from pelerbot.plugins.help import *
 
 @Client.on_message(filters.me & filters.command("gikes", COMMAND_HANDLER))
 async def gbroadcast(client: Client, message: Message):
@@ -37,3 +30,10 @@ async def gbroadcast(client: Client, message: Message):
     await msg_.reply_text(
         f"`Message Sucessfully Send To {done} Chats! Failed In {err} Chats.`"
     )
+
+add_command_help(
+    "gikes",
+    [
+        ["gikes", "Give a Message to Broadcast It."],
+    ],
+)
