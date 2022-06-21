@@ -30,7 +30,6 @@ async def module_help(client: Client, message: Message):
         ac = PrettyTable
         ac.header = False
         ac.title = "👉🏽Peler Modules👈🏽"
-        ac.footer = "prefix = ~,!,°"
         ac.align = "l"
         
         for x in split_list(sorted(HELP_COMMANDS.keys()), 2):
