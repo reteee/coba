@@ -6,13 +6,6 @@ from pelerbot.plugins import ALL_PLUGINS
 from pelerbot.utils.basic import *
 from pelerbot import *
 
-HELP_DEFAULT = f"""
-To get help for any command, just type `{COMMAND_HANDLER}help plugin_name`
-'plugin_name' should be the name of a proper plugin!
-
-Get a list of all Plugins using:
-`{COMMAND_HANDLER}help`
-"""
 
 heading = "──「 **{0}** 」──\n\n"
 
@@ -30,13 +23,13 @@ async def module_help(client: Client, message: Message):
         all_commands = ""
         all_commands += "Please specify which module you want help for!! \nUsage: `.help [module_name]`\n\n"
         
-        ac = PrettyTable()
+        ac = PrettyTable
         ac.header = False
         ac.title = "👉🏽Peler Modules👈🏽"
         ac.align = "l"
         
 
-        for x in split_list(sorted(CMD_HELP.keys()), 2):
+        for x in split_list(sorted(HELP_COMMANDS.keys()), 2):
             ac.add_row([x[0], x[1] if len(x) >= 3 else None])
             
 
