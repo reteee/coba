@@ -28,8 +28,6 @@ async def module_help(client: Client, message: Message):
         all_commands += "Please specify which module you want help for!! \nUsage: `.help [module_name]`\n\n"
 
         ac = EMOJI_HELP
-        ac.title = "👉🏽Peler Modules👈🏽"
-        ac.align = "l"
         
         for x in split_list(sorted(HELP_COMMANDS.keys()), 2):
             ac.add_row([x[0], x[1] if len(x) >= 2 else None])
