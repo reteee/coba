@@ -16,7 +16,7 @@ def __list_all_plugins():
         to_load = LOAD
         if to_load:
             if not all(
-                any(mod == module_name for module_name in all_modules)
+                any(mod == module_name for module_name in all_plugins)
                 for mod in to_load
             ):
                 LOGGER.error("Nama Modules yang anda masukan salah.")
@@ -31,4 +31,5 @@ def __list_all_plugins():
 
 
 ALL_PLUGINS = sorted(__list_all_plugins())
+LOGS.info("Modules To Load : %s", str(ALL_PLUGINS))
 __all__ = ALL_PLUGINS + ["ALL_PLUGINS"]
