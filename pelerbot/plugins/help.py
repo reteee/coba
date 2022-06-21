@@ -29,10 +29,6 @@ async def module_help(client: Client, message: Message):
 
         ac = EMOJI_HELP
         
-        for x in split_list(sorted(HELP_COMMANDS.keys()), 2):
-            ac.add_row([x[0], x[1] if len(x) >= 2 else None])
-        
-        
         await message.edit(f"```{str(ac)}```")
         
     if help_arg:
