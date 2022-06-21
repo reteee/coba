@@ -5,7 +5,7 @@ from pyrogram.types import Message
 from pelerbot.plugins import ALL_PLUGINS
 from pelerbot.utils.basic import *
 from pelerbot import *
-
+from pelerbot import HELP_COMMAND
 
 HELP_DEFAULT = f"""
 To get help for any command, just type `{COMMAND_HANDLER}help plugin_name`
