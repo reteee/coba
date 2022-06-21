@@ -9,6 +9,7 @@ from aiohttp import ClientSession
 from pyrogram import Client, filters, idle
 from pyrogram.types import *
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from os import getenv
 from dotenv import load_dotenv
 
 # the logging things
