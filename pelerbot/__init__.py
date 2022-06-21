@@ -4,6 +4,7 @@ import requests
 import re
 import asyncio
 import importlib
+from importlib import import_module
 from prettytable import PrettyTable
 from datetime import datetime
 from aiohttp import ClientSession
@@ -102,7 +103,7 @@ def load_cmds(ALL_PLUGINS):
     for oof in ALL_PLUGINS:
         if oof.lower() == "help":
             continue
-        imported_module = importlib.import_module("pelerbot.plugins." + oof)
+        imported_module = import_module("pelerbot.plugins." + module_name)
         if not hasattr(imported_module, "__PLUGIN__"):
             imported_module.__PLUGIN__ = imported_module.__name__
 
