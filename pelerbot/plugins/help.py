@@ -34,10 +34,10 @@ async def module_help(client: Client, message: Message):
         all_commands += "Please specify which module you want help for!! \nUsage: `.help [module_name]`\n\n"
 
         ac = PrettyTable
-        ac.header = "👉🏽Peler Modules👈🏽"
-        ac.title = "[module_name]"
+        ac.header = False
+        ac.title = "👉🏽Peler Modules👈🏽"
 
-        await message.edit(f"```{str(ac)}```")
+        await message.edit(f"```{str(ac) + ALL_PLUGINS}```")
         
     if help_arg:
         if help_arg in HELP_COMMAND:
