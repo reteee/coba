@@ -1,6 +1,12 @@
 from pelerbot import *
-
+from importlib import import_module
+from pelerbot.plugins import ALL_PLUGINS
 boottime = time.time()
+
+
+for module_name in ALL_PLUGINS:
+    imported_module = import_module("pelerbot.plugins." + module_name)
+
 
 if not STRING_SESSION1:
     logging.error("No String Session Found! Exiting!")
