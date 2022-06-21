@@ -5,7 +5,6 @@ from pyrogram.types import Message
 from pelerbot.plugins import ALL_PLUGINS
 from pelerbot.utils.basic import *
 from pelerbot import *
-from pelerbot import HELP_COMMAND
 
 HELP_DEFAULT = f"""
 To get help for any command, just type `{COMMAND_HANDLER}help plugin_name`
@@ -34,15 +33,15 @@ async def module_help(client: Client, message: Message):
         ac.footer = "prefix = ~,!,°"
         ac.align = "l"
         
-        for x in split_list(sorted(HELP_COMMAND.keys()), 2):
+        for x in split_list(sorted(HELP_COMMANDS.keys()), 2):
             ac.add_row([x[0], x[1] if len(x) >= 2 else None])
         
         
         await message.edit(f"```{str(ac)}```")
         
     if help_arg:
-        if help_arg in HELP_COMMAND:
-            commands: dict = HELP_COMMAND[help_arg]
+        if help_arg in HELP_COMMANDS:
+            commands: dict = HELP_COMMANDS[help_arg]
             this_command = "**Help for**\n"
             this_command += heading.format(str(help_arg)).upper()
 
@@ -69,8 +68,8 @@ def add_command_help(module_name, commands):
     # Key will be group name
     # values will be dict of dicts of key command and value description
 
-    if module_name in HELP_COMMAND.keys():
-        command_dict = HELP_COMMAND[module_name]
+    if module_name in HELP_COMMANDS.keys():
+        command_dict = HELP_COMMANDS[module_name]
     else:
         command_dict = {}
 
@@ -79,4 +78,4 @@ def add_command_help(module_name, commands):
             if y is not x:
                 command_dict[x[0]] = x[1]
 
-    HELP_COMMAND[module_name] = command_dict
+    HELP_COMMANDS[module_name] = command_dict
