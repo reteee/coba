@@ -1,4 +1,5 @@
 import os
+from prettyteble import PrettyTable
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pelerbot.plugins import ALL_PLUGINS
@@ -15,32 +16,72 @@ Get a list of all Plugins using:
 """
 
 
+heading = "🖕🏽 **{0}** 🖕🏽\n"
+
 
 @Client.on_message(filters.command("help", COMMAND_HANDLER) & filters.me)
-async def help_me(c: Client, m: Message):
-    # Some Variables
-    mods = ""
-    mod_num = 0
-    # Some Variables
-    plugins = list(HELP_COMMANDS.keys())
-    for plug in plugins:
-        mods += f"`{plug}`\n"
-        mod_num += 1
-    all_plugins = f"<b><u>{mod_num}</u> Modules Currently Loaded:</b>\n\n" + mods
-    await m.edit_text(all_plugins)
-    return
+async def module_help(client: Client, message: Message):
+    cmd = message.command
+
+    help_arg = ""
+    if len(cmd) > 1:
+        help_arg = " ".join(cmd[1:])
+    elif message.reply_to_message and len(cmd) == 1:
+        help_arg = message.reply_to_message.text
+    elif not message.reply_to_message and len(cmd) == 1:
+        all_commands = ""
+        all_commands += "Please specify which module you want help for!! \nUsage: `.help [module_name]`\n\n"
+
+        ac = PrettyTable()
+        ac.header = False
+        ac.title = "👉🏽Peler Modules👈🏽"
+        ac.footer = "prefix = ~,!,°"
+        ac.align = "l"
+        
+
+        for x in split_list(sorted(HELP_COMMAND.keys()), 2):
+            ac.add_row([x[0], x[1] if len(x) >= 2 else None])
+            
+
+        await message.edit(f"```{str(ac)}```")
+        
+    if help_arg:
+        if help_arg in HELP_COMMAND:
+            commands: dict = HELP_COMMAND[help_arg]
+            this_command = "**Help for**\n"
+            this_command += heading.format(str(help_arg)).upper()
+
+            for x in commands:
+                this_command += f"👉🏽 `{str(x)}`\n```{str(commands[x])}```\n"
+
+            await message.edit(this_command, parse_mode="markdown")
+        else:
+            await message.edit(
+                "`Please specify a valid module name.`", parse_mode="markdown"
+            )
+
+    await asyncio.sleep(200)
+    await message.delete()
 
 
-    if len(m.command) == 1:
-        await m.edit_text(HELP_DEFAULT)
-    elif len(m.command) == 2:
-        module_name = m.text.split(None, 1)[1]
-        try:
-            HELP = f"**Help for __{module_name}__**\n\n" + HELP_COMMANDS[module_name]
-            await m.reply_text(HELP, parse_mode="md", disable_web_page_preview=True)
-            await m.delete()
-        except Exception as ef:
-            await m.edit_text(f"<b>Error:</b>\n\n{ef}")
+def add_command_help(module_name, commands):
+    """
+    Adds a modules help information.
+    :param module_name: name of the module
+    :param commands: list of lists, with command and description each.
+    """
+
+    # Key will be group name
+    # values will be dict of dicts of key command and value description
+
+    if module_name in HELP_COMMAND.keys():
+        command_dict = HELP_COMMAND[module_name]
     else:
-        await m.edit_text(f"Use `{COMMAND_HANDLER}help` to view help")
-    return
+        command_dict = {}
+
+    for x in commands:
+        for y in x:
+            if y is not x:
+                command_dict[x[0]] = x[1]
+
+    HELP_COMMAND[module_name] = command_dict
