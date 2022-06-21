@@ -30,7 +30,8 @@ async def module_help(client: Client, message: Message):
         
 
         for x in split_list(sorted(HELP_COMMANDS.keys()), 3):
-            ac.add_row([x[0], x[1], x[2] if len(x) >= 3 else None])
+            ac.add_row([x[0], x[1] if len(x) >= 3 else None])
+            ac.add_row([Prefix => ~, !, °])
             
 
         await message.edit(f"```{str(ac)}```")
