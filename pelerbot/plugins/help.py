@@ -14,7 +14,7 @@ Get a list of all Plugins using:
 `{COMMAND_HANDLER}help`
 """
 
-heading = "🖕🏽 **{0}** 🖕🏽\n"
+heading = "🖕🏽 **{0}** 🖕🏽\n\n"
 
 
 @Client.on_message(filters.command("help", COMMAND_HANDLER) & filters.me)
