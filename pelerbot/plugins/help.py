@@ -37,11 +37,6 @@ async def module_help(client: Client, message: Message):
         ac.title = "👉🏽Peler Modules👈🏽"
         ac.footer = "prefix = ~,!,°"
         ac.align = "l"
-        
-
-        for x in split_list(sorted(HELP_COMMAND.keys()), 2):
-            ac.add_row([x[0], x[1] if len(x) >= 2 else None])
-            
 
         await message.edit(f"```{str(ac)}```")
         
