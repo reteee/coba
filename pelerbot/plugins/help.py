@@ -9,7 +9,7 @@ HELP_DEFAULT = f"""
 To get help for any command, just type `{COMMAND_HANDLER}help plugin_name`
 'plugin_name' should be the name of a proper plugin!
 Get a list of all Plugins using:
-`{COMMAND_HANDLER}plugins`
+`{COMMAND_HANDLER}help`
 """
 
 
