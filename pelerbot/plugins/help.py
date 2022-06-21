@@ -37,7 +37,7 @@ async def module_help(client: Client, message: Message):
         ac.header = False
         ac.title = "👉🏽Peler Modules👈🏽"
 
-        await message.edit(f"```{str(ac) + ALL_PLUGINS}```")
+        await message.edit(f"```{str(ac)}```")
         
     if help_arg:
         if help_arg in HELP_COMMAND:
