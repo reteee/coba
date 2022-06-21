@@ -30,7 +30,7 @@ async def module_help(client: Client, message: Message):
         all_commands = ""
         all_commands += "Please specify which module you want help for!! \nUsage: `.help [module_name]`\n\n"
         
-        await message.edit(f"```{str(all_command)}```")
+        await message.edit(all_command)
         
     if help_arg:
         if help_arg in HELP_COMMANDS:
