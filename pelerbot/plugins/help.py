@@ -29,8 +29,6 @@ async def module_help(client: Client, message: Message):
     elif not message.reply_to_message and len(cmd) == 1:
         all_commands = ""
         all_commands += "Please specify which module you want help for!! \nUsage: `.help [module_name]`\n\n"
-
-        ac = all_plugins
         
         await message.edit(f"```{str(ac)}```")
         
