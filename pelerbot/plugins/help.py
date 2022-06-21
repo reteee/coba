@@ -28,7 +28,6 @@ async def module_help(client: Client, message: Message):
         all_commands += "Please specify which module you want help for!! \nUsage: `.help [module_name]`\n\n"
 
         ac = EMOJI_HELP
-        ac.header = False
         ac.title = "👉🏽Peler Modules👈🏽"
         ac.align = "l"
         
