@@ -27,9 +27,9 @@ async def module_help(client: Client, message: Message):
         all_commands = ""
         all_commands += "Please specify which module you want help for!! \nUsage: `.help [module_name]`\n\n"
 
-        ac = EMOJI_HELP + ALL_PLUGINS
+        ac = EMOJI_HELP 
         
-        await message.edit(f"```{str(ac)}```")
+        await message.edit(f"```{str(ac) + ALL_PLUGINS}```")
         
     if help_arg:
         if help_arg in HELP_COMMANDS:
