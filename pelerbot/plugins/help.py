@@ -29,7 +29,7 @@ async def module_help(client: Client, message: Message):
         ac.align = "l"
         
 
-        for x in split_list(sorted(HELP_COMMANDS.keys()), 2):
+        for x in split_list(sorted(HELP_COMMANDS.keys()), 3):
             ac.add_row([x[0], x[1] if len(x) >= 3 else None])
             
 
