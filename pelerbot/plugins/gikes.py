@@ -5,7 +5,7 @@ from pyrogram.types import Message
 from pelerbot.utils.gban_errors import *
 from pelerbot.utils.basic import *
 from pelerbot import COMMAND_HANDLER
-from modules.help import *
+from pelerbot.plugins.help import *
 
 
 @Client.on_message(filters.me & filters.command("gikes", COMMAND_HANDLER))
@@ -35,6 +35,6 @@ async def gbroadcast(client: Client, message: Message):
 add_command_help(
     "gikes",
     [
-        ["gikes", "Give a Message to Broadcast It."],
+        ["gikes", "Message to Global Broadcast."],
     ],
 )
