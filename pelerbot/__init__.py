@@ -27,7 +27,6 @@ if os.path.exists("local.env"):
 que = {}
 
 
-SUDO_USERS = list(map(int, getenv("SUDO_USERS", "5372076947").split()))
 API_ID = int(getenv("API_ID", "13135189"))
 API_HASH = getenv("API_HASH", "42186d1f48bd4d3c8233b269763b1361")
 COMMAND_HANDLER = getenv("COMMAND_HANDLER", ["~", "!", "°"])
