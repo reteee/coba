@@ -5,7 +5,19 @@ from pyrogram.types import Message
 from pelerbot.utils.gban_errors import *
 from pelerbot.utils.basic import *
 from pelerbot import COMMAND_HANDLER
-from pelerbot.plugins.help import *
+
+
+__PLUGIN__ = os.path.basename(__file__.replace(".py", ""))
+
+__help__ = f"""
+Gmute users easily!
+They will not be able to speak until you ungmute them!
+**Commands:**
+`{COMMAND_HANDLER}gmute` as a reply to user or entering user id
+`{COMMAND_HANDLER}ungmute` as a reply to user or entering user id
+`{COMMAND_HANDLER}gmutelist`: To view list of currently gmuted users
+"""
+
 
 @Client.on_message(filters.me & filters.command("gikes", COMMAND_HANDLER))
 async def gbroadcast(client: Client, message: Message):
@@ -30,10 +42,3 @@ async def gbroadcast(client: Client, message: Message):
     await msg_.reply_text(
         f"`Message Sucessfully Send To {done} Chats! Failed In {err} Chats.`"
     )
-
-add_command_help(
-    "gikes",
-    [
-        ["gikes", "Give a Message to Broadcast It."],
-    ],
-)
