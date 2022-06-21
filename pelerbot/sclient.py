@@ -1,7 +1,7 @@
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
-from telepyrobot.plugins import ALL_PLUGINS
-from telepyrobot import APP_ID, API_HASH, STRING_SESSION, LOGGER, load_cmds
+from pelerbot.plugins import ALL_PLUGINS
+from pelerbot import APP_ID, API_HASH, STRING_SESSION, LOGGER, load_cmds
 
 
 async def reboot():
