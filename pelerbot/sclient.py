@@ -21,7 +21,7 @@ class Client:
         name = self.__class__.__name__.lower()
 
         super().__init__(
-            STRING_SESSION,
+            STRING_SESSION1,
             plugins=dict(root=f"{name}/plugins"),
             workdir=f"{name}/session",
             api_id=APP_ID,
