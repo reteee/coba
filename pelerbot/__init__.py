@@ -9,7 +9,7 @@ from aiohttp import ClientSession
 from pyrogram import Client, filters, idle
 from pyrogram.types import *
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-
+from dotenv import load_dotenv
 
 # the logging things
 import logging
@@ -21,12 +21,15 @@ aiohttpsession = ClientSession()
 
 
 # Configuration Things
-if bool(os.environ.get("ENV", False)):
+if os.path.exists("local.env"):
+    load_dotenv("local.env")
+que = {}
 
 
 SUDO_USERS = list(map(int, getenv("SUDO_USERS", "5372076947").split()))
 API_ID = int(getenv("API_ID", "13135189"))
 API_HASH = getenv("API_HASH", "42186d1f48bd4d3c8233b269763b1361")
+COMMAND_HANDLER = getenv("COMMAND_HANDLER", ["~", "!", "°"])
 LOG_GROUP = getenv("LOG_GROUP", "-1001773996149")
 SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", "")
 OWNER_ID = getenv("OWNER_ID", "5372076947")
