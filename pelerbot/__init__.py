@@ -27,7 +27,8 @@ if os.path.exists("local.env"):
     load_dotenv("local.env")
 que = {}
 
-
+LOAD = os.environ.get("LOAD", "").split()
+NO_LOAD = os.environ.get("NO_LOAD", "").split()
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "🔥"
 LOGGER = logging.getLogger(__name__)
 API_ID = int(getenv("API_ID", "13135189"))
