@@ -33,10 +33,8 @@ async def module_help(client: Client, message: Message):
         all_commands += "Please specify which module you want help for!! \nUsage: `.help [module_name]`\n\n"
 
         ac = PrettyTable
-        ac.header = False
-        ac.title = "👉🏽Peler Modules👈🏽"
-        ac.footer = "prefix = ~,!,°"
-        ac.align = "l"
+        ac.header = "👉🏽Peler Modules👈🏽"
+        ac.title = "[module_name]"
 
         await message.edit(f"```{str(ac)}```")
         
