@@ -3,9 +3,8 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pelerbot.plugins import ALL_PLUGINS
-from pelerbot import PrettyTable
-from pelerbot import COMMAND_HANDLER
-from pelerbot import HELP_COMMANDS
+from pelerbot.utils import *
+from pelerbot import *
 
 
 HELP_DEFAULT = f"""
@@ -34,6 +33,10 @@ async def module_help(client: Client, message: Message):
         ac.title = "👉🏽Peler Modules👈🏽"
         ac.footer = "prefix = ~,!,°"
         ac.align = "l"
+        
+        for x in split_list(sorted(HELP_COMMAND.keys()), 2):
+            ac.add_row([x[0], x[1] if len(x) >= 2 else None])
+        
         
         await message.edit(f"```{str(ac)}```")
         
