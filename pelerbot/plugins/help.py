@@ -1,5 +1,5 @@
 import os
-from prettyteble import PrettyTable
+import PrettyTable
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pelerbot.plugins import ALL_PLUGINS
