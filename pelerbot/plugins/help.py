@@ -2,6 +2,7 @@ import os
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pelerbot.plugins import ALL_PLUGINS
+from pelerbot import COMMAND_HANDLER
 from pelerbot import HELP_COMMANDS
 
 
