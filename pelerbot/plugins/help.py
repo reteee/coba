@@ -42,7 +42,7 @@ async def module_help(client: Client, message: Message):
             this_command += heading.format(str(help_arg)).upper()
 
             for x in commands:
-                this_command += f"~➣ `{str(x)}`\n```{str(commands[x])}```\n"
+                this_command += f"~➣ `{str(x)}`\n```{str(commands[x])}```\n\n"
 
             await message.edit(this_command, parse_mode="markdown")
         else:
