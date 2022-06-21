@@ -33,32 +33,32 @@ else:
 
 
 if STRING_SESSION1:
-    bot1 = Client(session_name= STRING_SESSION1, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="modules"))
+    bot1 = Client(session_name= STRING_SESSION1, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="pelerbot.plugins"))
 else:
     bot1 = None
 
 if STRING_SESSION2:
-    bot2 = Client(session_name= STRING_SESSION2, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="modules"))
+    bot2 = Client(session_name= STRING_SESSION2, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="pelerbot.plugins"))
 else:
     bot2 = None
 
 if STRING_SESSION3:
-    bot3 = Client(session_name= STRING_SESSION3, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="modules"))
+    bot3 = Client(session_name= STRING_SESSION3, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="pelerbot.plugins"))
 else:
     bot3 = None
 
 if STRING_SESSION4:
-    bot4 = Client(session_name= STRING_SESSION4, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="modules"))
+    bot4 = Client(session_name= STRING_SESSION4, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="pelerbot.plugins"))
 else:
     bot4 = None
 
 if STRING_SESSION5:
-    bot5 = Client(session_name= STRING_SESSION5, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="modules"))
+    bot5 = Client(session_name= STRING_SESSION5, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="pelerbot.plugins"))
 else:
     bot5 = None
 
 if STRING_SESSION6:
-    bot6 = Client(session_name= STRING_SESSION6, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="modules"))
+    bot6 = Client(session_name= STRING_SESSION6, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="pelerbot.plugins"))
 else:
    bot6 = None
 
