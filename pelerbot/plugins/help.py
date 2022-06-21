@@ -15,7 +15,7 @@ Get a list of all Plugins using:
 `{COMMAND_HANDLER}help`
 """
 
-@Client.on_message(filters.command("plugins", COMMAND_HAND_LER) & filters.me)
+@Client.on_message(filters.command("plugins", COMMAND_HANDLER) & filters.me)
 async def list_plugins(c: Client, m: Message):
     # Some Variables
     mods = ""
@@ -30,7 +30,7 @@ async def list_plugins(c: Client, m: Message):
     return
 
 
-@Client.on_message(filters.command("help", COMMAND_HAND_LER) & filters.me)
+@Client.on_message(filters.command("help", COMMAND_HANDLER) & filters.me)
 async def help_me(c: Client, m: Message):
     if len(m.command) == 1:
         await m.edit_text(HELP_DEFAULT)
