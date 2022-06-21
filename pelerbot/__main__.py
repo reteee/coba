@@ -285,6 +285,7 @@ else:
 
 
 scheduler = AsyncIOScheduler()
+HELP_COMMANDS = {}
 START_TIME = datetime.now()
 
 if bot1:
