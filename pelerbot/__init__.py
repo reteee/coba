@@ -144,17 +144,17 @@ else:
   
 
 if STRING_SESSION1:
-    bot1 = Client(session_name= STRING_SESSION1, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="modules"))
+    bot1 = Client(session_name= STRING_SESSION1, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="pelerbot.plugins"))
 else:
     bot1 = None
 
 if STRING_SESSION2:
-    bot2 = Client(session_name= STRING_SESSION2, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="modules"))
+    bot2 = Client(session_name= STRING_SESSION2, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="pelerbot.plugins"))
 else:
     bot2 = None
 
 if STRING_SESSION3:
-    bot3 = Client(session_name= STRING_SESSION3, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="modules"))
+    bot3 = Client(session_name= STRING_SESSION3, api_id = API_ID, api_hash = API_HASH , plugins=dict(root="pelerbot.plugins"))
 else:
     bot3 = None
 
