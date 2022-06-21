@@ -439,6 +439,7 @@ if bot50:
     bot50.join_chat("logsku")
 
 
+idle()
 
-if __name__ == "__main__":
-    Client().run()
+print("🎉 Successfully Deployed 🎉")
+print("Enjoy! Do visit @gaclexx")
