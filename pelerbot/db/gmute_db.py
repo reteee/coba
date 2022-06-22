@@ -1,4 +1,4 @@
-from telepyrobot.db import SESSION, BASE
+from pelerbot.db import SESSION, BASE
 from sqlalchemy import Column, Integer
 import threading
 
