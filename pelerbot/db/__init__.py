@@ -1,7 +1,15 @@
-import os
-from pelerbot import MONGO_DB
-from motor.motor_asyncio import AsyncIOMotorClient
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, scoped_session
+from pelerbot import DATABASE_URL
 
-mongo_db = AsyncIOMotorClient(MONGO_DB)
-db = mongo_db["SPAMBOT"]
-SPAMBOT = 'SPAMBOT'
+
+def start() -> scoped_session:
+    engine = create_engine(DATABASE_URL)
+    BASE.metadata.bind = engine
+    BASE.metadata.create_all(engine)
+    return scoped_session(sessionmaker(bind=engine, autoflush=False))
+
+
+BASE = declarative_base()
+SESSION = start()
