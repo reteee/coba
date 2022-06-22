@@ -41,10 +41,10 @@ async def gbun_him(client: Client, message: Message):
     await gbun.edit("`Starting GBans Now!`")
     for devils in chat_dict:
         try:
-            await client.kick_chat_member(devils, int(userz.id))
+            await client.kick_chat_member(devils, int(userz))
         except:
             failed += 1
-    await gban_user(userz.id, reason)
+    await gban_user(userz, reason)
     gbanned = f"**#GBanned** \n**User :** [{userz.first_name}](tg://user?id={userz.id}) \n**Reason :** `{reason}` \n**Affected Chats :** `{chat_len-failed}`"
     await gbun.edit(gbanned)
     
@@ -79,10 +79,10 @@ async def ungbun_him(client: Client, message: Message):
     await ungbun.edit("`Starting Un-GBans Now!`")
     for devils in chat_dict:
         try:
-            await client.unban_chat_member(devils, int(userz.id))
+            await client.unban_chat_member(devils, int(userz))
         except:
             failed += 1
-    await ungban_user(userz.id)
+    await ungban_user(userz)
     ungbanned = f"**#Un_GBanned** \n**User :** [{userz.first_name}](tg://user?id={userz.id}) \n**Affected Chats :** `{chat_len-failed}`"
     await ungbun.edit(ungbanned)
     
