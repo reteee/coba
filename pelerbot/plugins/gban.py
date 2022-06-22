@@ -19,7 +19,7 @@ async def gbun_him(client: Client, message: Message):
         await gbun.edit("`Reply To User Or Mention To GBan Him`")
         return
     try:
-        userz = await client.get_user(user)
+        userz = await client.get_users(user)
     except:
         await gbun.edit(f"`404 : User Doesn't Exists In This Chat !`")
         return
@@ -59,7 +59,7 @@ async def ungbun_him(client: Client, message: Message):
         await ungbun.edit("`Reply To User Or Mention To Un-GBan Him`")
         return
     try:
-        userz = await client.get_user(user)
+        userz = await client.get_users(user)
     except:
         await ungbun.edit(f"`404 : User Doesn't Exists!`")
         return
