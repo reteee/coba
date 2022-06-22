@@ -21,7 +21,7 @@ async def gbun_him(client: Client, message: Message):
         else:
             grson = "That guy is a creepy scammer!"
         g_uid = text_.from_user.id
-    elif grsn:
+    elif g_rsn:
         gets_user_arg = g_rsn.split(None)
         g_rsn = gets_user_arg[1]
         g_uid = gets_user_arg[0]
