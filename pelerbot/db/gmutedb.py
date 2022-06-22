@@ -1,4 +1,4 @@
-from . import db
+from pelerbor.db import db
 
 gmuteh = db["GMUTE"]
 
