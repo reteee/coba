@@ -3,9 +3,10 @@ from pyrogram.types import Message
 from pelerbot.db.gmutedb import *
 from pelerbot.utils.basic import *
 from pelerbot.plugins.help import *
+from pelerbot import COMMAND_HANDLER
 
 
-@Client.on_message(filters.me & filters.command("gmute", ["."]))
+@Client.on_message(filters.me & filters.command("gmute", COMMAND_HANDLER))
 async def gmute_him(client: Client, message: Message):
     g = await message.edit_text("`Processing..`")
     text_ = message.reply_to_message.text
