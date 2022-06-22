@@ -85,3 +85,16 @@ async def ungbun_him(client: Client, message: Message):
     await ungban_user(userz.id)
     ungbanned = f"**#Un_GBanned** \n**User :** [{userz.first_name}](tg://user?id={userz.id}) \n**Affected Chats :** `{chat_len-failed}`"
     await ungbun.edit(ungbanned)
+    
+    
+@Client.on_message(filters.me & filters.command("gbanlist", COMMAND_HANDLER))
+async def give_glist(client: Client, message: Message):
+    oof = "**#GBanList** \n\n"
+    glist = await message.edit_text("`Processing..`")
+    list_ = await gban_list()
+    if len(list_) == 0:
+        await glist.edit("`No User is Gbanned Till Now!`")
+        return
+    for lit in list_:
+        oof += f"**User :** `{lit['user']}` \n**Reason :** `{lit['reason']}` \n\n"
+    await edit_or_send_as_file(oof, glist, client, "GbanList", "Gban-List")
