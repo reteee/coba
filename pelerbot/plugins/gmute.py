@@ -9,7 +9,7 @@ from pelerbot import COMMAND_HANDLER
 @Client.on_message(filters.me & filters.command("gmute", COMMAND_HANDLER))
 async def gmute_him(client: Client, message: Message):
     g = await message.edit_text("`Processing..`")
-    text_ = message.reply_to_message.text
+    text_ = message.reply_to_message
     user, reason = get_user(message, text_)
     mee = await client.get_me()
     if not text_:
