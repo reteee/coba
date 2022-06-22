@@ -10,11 +10,11 @@ from pelerbot import COMMAND_HANDLER
 async def gmute_him(client: Client, message: Message):
     g = await message.edit_text("`Processing..`")
     text_ = message.reply_to_message
-    user, reason = get_user(message, text_)
+    user, reason = get_text(message)
     mee = await client.get_me()
     if not text_:
         if user:
-            user = user
+            user = text
         else:
             return await g.edit("`Reply To User Or Mention To Gmute Him`")
         if user == mee:
