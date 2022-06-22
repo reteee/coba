@@ -4,6 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from traceback import format_exc
 from pelerbot.utils.basic import *
+from pelerbot.utils.gban_errors import *
 from pelerbot.db.gbandb import *
 
 
@@ -17,7 +18,7 @@ async def gbun_him(client: Client, message: Message):
         await gbun.edit("`Reply To User Or Mention To GBan Him`")
         return
     try:
-        userz = await client.get_users(user)
+        userz = await client.get_user(user)
     except:
         await gbun.edit(f"`404 : User Doesn't Exists In This Chat !`")
         return
@@ -57,7 +58,7 @@ async def ungbun_him(client: Client, message: Message):
         await ungbun.edit("`Reply To User Or Mention To Un-GBan Him`")
         return
     try:
-        userz = await client.get_users(user)
+        userz = await client.get_user(user)
     except:
         await ungbun.edit(f"`404 : User Doesn't Exists!`")
         return
