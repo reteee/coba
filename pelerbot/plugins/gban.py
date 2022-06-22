@@ -1,3 +1,11 @@
+import asyncio
+import random
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from traceback import format_exc
+from pelerbot.utils.basic import *
+from pelerbot.db.gbandb import *
+
 
 @Client.on_message(filters.me & filters.command("gban", ["."]))
 async def gbun_him(client: Client, message: Message):
