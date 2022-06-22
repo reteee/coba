@@ -52,7 +52,7 @@ async def gbun_him(client: Client, message: Message):
             await client.kick_chat_member(chat_id=devils, user_id=int(g_uid))
         except:
             failed += 1
-    await gban_user(gban_id=g_uid, gban_reason=grson)
+    await gban_user(user=g_uid, reason=grson)
     await gbun.edit("**#GBanned** \n**User :** [{g_uid.first_name}](tg://user?id={g_uid}) \n**Reason :** `{grson}` \n**Affected Chats :** `{total_f_chats-failed}`")
     
     
