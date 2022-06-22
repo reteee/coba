@@ -1,7 +1,7 @@
 import os
 from pelerbot import MONGO_DB
-import motor.motor_asyncio
+from motor.motor_asyncio import AsyncIOMotorClient
 
-mongo_db = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DB)
+mongo_db = AsyncIOMotorClient(MONGO_DB)
 db = mongo_db["SPAMBOT"]
 SPAMBOT = 'SPAMBOT'
