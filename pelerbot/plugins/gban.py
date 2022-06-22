@@ -42,7 +42,7 @@ async def gbun_him(client: Client, message: Message):
     if is_gbanned:
         return await gbun.edit("`Sigoblok is already GBANNED!`")
     await gbun.edit("`Fetching Chats For Gban Process...`")
-    f_chats = await iter_chat()
+    f_chats = await iter_chats()
     if not f_chats:
         return await gbun.edit("`No Chats to Gban!`")
     total_f_chats = len(f_chats)
