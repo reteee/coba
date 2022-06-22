@@ -30,4 +30,4 @@ async def gmute_him(client: Client, message: Message):
         return await g.edit("`No Chats to Gmute!`")
         failed += 1
     await gmute(userz.id, reason)
-    await g.edit(f"**#Gmutted** \n**User :** `{userz.id}` \n**Reason :** `{failed}`")
+    await g.edit(f"**#Gmutted** \n**User :** `{userz.id}` \n in {failed} Chat \n **Reason :** `{reason}`")
