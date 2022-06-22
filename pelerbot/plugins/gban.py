@@ -3,12 +3,13 @@ import random
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from traceback import format_exc
+from pelerbot import COMMAND_HANDLER
 from pelerbot.utils.basic import *
 from pelerbot.utils.gban_errors import *
 from pelerbot.db.gbandb import *
 
 
-@Client.on_message(filters.me & filters.command("gban", ["."]))
+@Client.on_message(filters.me & filters.command("gban", COMMAND_HANDLER))
 async def gbun_him(client: Client, message: Message):
     gbun = await message.edit_text("`Processing..`")
     text_ = get_text(message)
@@ -48,7 +49,7 @@ async def gbun_him(client: Client, message: Message):
     await gbun.edit(gbanned)
     
 
-@Client.on_message(filters.me & filters.command("ungban", ["."]))
+@Client.on_message(filters.me & filters.command("ungban", COMMAND_HANDLER))
 async def ungbun_him(client: Client, message: Message):
     ungbun= await message.edit_text("`Processing..`")
     text_ = get_text(message)
