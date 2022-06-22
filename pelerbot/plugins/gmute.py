@@ -19,12 +19,13 @@ async def gmute_him(client: Client, message: Message):
             return await g.edit("`Reply To User Or Mention To Gmute Him`")
         if user == mee:
             return await g.edit("`I can't gmute myself.`")
-    userz.id = await client.get_users(user)
+    userz = await client.get_users(user)
     failed = 0
-        if is_gmuted(sender_id=userz.id)
-            return await g.edit("`User is already gmuted.`")
-        if not reason:
-            reason = "Just_Gmutted!"
+        if userz = userz.id:
+            if is_gmuted(userz.id)
+                return await g.edit("`User is already gmuted.`")
+            if not reason:
+                reason = "Just_Gmutted!"
     dlog = client.iter_dialogs()
     if not dlog:
         return await g.edit("`No Chats to Gmute!`")
