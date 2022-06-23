@@ -59,3 +59,45 @@ async def gbanuser(client: Client, message: Message):
     await message.reply_text(
         "**Gbanned Successfully**\n\nBanned **{0}** from **{1}** chats.".format(mention, number_of_chats)
     )
+
+    
+
+@Client.on_message(filters.me & filters.command("ugban", COMMAND_HANDLER))
+async def gungabn(client: Client, message: Message):
+    if not message.reply_to_message:
+        if len(message.command) != 2:
+            return await message.reply_text(_["general_1"])
+        user = message.text.split(None, 1)[1]
+        user = await client.get_users(user)
+        user_id = user.id
+        mention = user.mention
+    else:
+        user_id = message.reply_to_message.from_user.id
+        mention = message.reply_to_message.from_user.mention
+    is_gbanned = await is_banned_user(user_id)
+    if not is_gbanned:
+        return await message.reply_text(_["gban_7"].format(mention))
+    if user_id in BANNED_USERS:
+        BANNED_USERS.remove(user_id)
+    served_chats = []
+    chats = await client.iter_dialogs()
+    for dialog in chats:
+        served_chats.append(dialog.chat.id)
+    time_expected = len(served_chats)
+    time_expected = get_readable_time(time_expected)
+    mystic = await message.reply_text(
+        _["gban_8"].format(mention, time_expected)
+    )
+    number_of_chats = 0
+    for chat_id in served_chats:
+        try:
+            await app.unban_chat_member(chat_id, user_id)
+            number_of_chats += 1
+        except FloodWait as e:
+            await asyncio.sleep(int(e.x))
+        except Exception:
+            pass
+    await remove_banned_user(user_id)
+    await message.reply_text(
+        _["gban_9"].format(mention, number_of_chats)
+    )
