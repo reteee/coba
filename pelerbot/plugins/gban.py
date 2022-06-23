@@ -38,7 +38,7 @@ async def gbanuser(client: Client, message: Message):
     if user_id not in BANNED_USERS:
         BANNED_USERS.add(user_id)
     served_chats = []
-    chats = await client.iter_dialogs()
+    chats = await client.iter_chats(client)
     for dialog in chats:
         served_chats.append(dialog.chat.id)
     time_expected = len(served_chats)
@@ -80,7 +80,7 @@ async def gungabn(client: Client, message: Message):
     if user_id in BANNED_USERS:
         BANNED_USERS.remove(user_id)
     served_chats = []
-    chats = await client.iter_dialogs()
+    chats = await client.iter_chats(client)
     for dialog in chats:
         served_chats.append(dialog.chat.id)
     time_expected = len(served_chats)
