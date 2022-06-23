@@ -34,7 +34,7 @@ async def gbanuser(client: Client, message: Message):
         return await message.reply_text("`You want to gban yourself? How Fool!`")
     is_gbanned = await is_banned_user(user_id)
     if is_gbanned:
-        return await message.reply_text("`{0} sudah **gbanned**`".format(mention))
+        return await message.reply_text("{0} is already **gbanned**".format(mention))
     if user_id not in BANNED_USERS:
         BANNED_USERS.add(user_id)
     served_chats = []
@@ -66,7 +66,7 @@ async def gbanuser(client: Client, message: Message):
 async def gungabn(client: Client, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
-            return await message.reply_text(_["general_1"])
+            return await message.reply_text("`Reply to a user's message or give username/user id.`")
         user = message.text.split(None, 1)[1]
         user = await client.get_users(user)
         user_id = user.id
@@ -76,7 +76,7 @@ async def gungabn(client: Client, message: Message):
         mention = message.reply_to_message.from_user.mention
     is_gbanned = await is_banned_user(user_id)
     if not is_gbanned:
-        return await message.reply_text(_["gban_7"].format(mention))
+        return await message.reply_text("{0} is not **gbanned**".format(mention))
     if user_id in BANNED_USERS:
         BANNED_USERS.remove(user_id)
     served_chats = []
@@ -86,7 +86,7 @@ async def gungabn(client: Client, message: Message):
     time_expected = len(served_chats)
     time_expected = get_readable_time(time_expected)
     mystic = await message.reply_text(
-        _["gban_8"].format(mention, time_expected)
+        "**Ungbanning {0}**\n\nExpected Time : {1}.".format(mention, time_expected)
     )
     number_of_chats = 0
     for chat_id in served_chats:
@@ -99,5 +99,5 @@ async def gungabn(client: Client, message: Message):
             pass
     await remove_banned_user(user_id)
     await message.reply_text(
-        _["gban_9"].format(mention, number_of_chats)
+        "**UnGbanned Successfully**\n\nUnbanned **{0}** in **{1}** chats.".format(mention, number_of_chats)
     )
