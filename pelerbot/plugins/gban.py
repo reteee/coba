@@ -38,9 +38,9 @@ async def gbanuser(client: Client, message: Message):
     if user_id not in BANNED_USERS:
         BANNED_USERS.add(user_id)
     served_chats = []
-    chats = await client.iter_chats(client)
-    for dialog in chats:
-        served_chats.append(dialog.chat.id)
+    chats = await get_served_chats()
+    for chat in chats:
+        served_chats.append(int(chat["chat_id"]))
     time_expected = len(served_chats)
     time_expected = get_readable_time(time_expected)
     mystic = await message.reply_text(
@@ -80,9 +80,9 @@ async def gungabn(client: Client, message: Message):
     if user_id in BANNED_USERS:
         BANNED_USERS.remove(user_id)
     served_chats = []
-    chats = await client.iter_chats(client)
-    for dialog in chats:
-        served_chats.append(dialog.chat.id)
+    chats = await get_served_chats()
+    for chat in chats:
+        served_chats.append(int(chat["chat_id"]))
     time_expected = len(served_chats)
     time_expected = get_readable_time(time_expected)
     mystic = await message.reply_text(
