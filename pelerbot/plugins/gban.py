@@ -23,7 +23,7 @@ async def gbanuser(client: Client, message: Message):
         if len(message.command) != 2:
             return await message.reply_text("`Reply to a user's message or give username/user id.`")
         user = message.text.split(None, 1)[1]
-        user = await app.get_users(user)
+        user = await client.get_users(user)
         user_id = user.id
         mention = user.mention
     else:
@@ -31,7 +31,7 @@ async def gbanuser(client: Client, message: Message):
         mention = message.reply_to_message.from_user.mention
     if user_id == message.from_user.id:
         return await message.reply_text("`You want to gban yourself? How Fool!`")
-    elif user_id == app.id:
+    elif user_id == client.id:
         return await message.reply_text("`Should i block myself? Lol`")
     is_gbanned = await is_banned_user(user_id)
     if is_gbanned:
@@ -50,7 +50,7 @@ async def gbanuser(client: Client, message: Message):
     number_of_chats = 0
     for chat_id in served_chats:
         try:
-            await app.ban_chat_member(chat_id, user_id)
+            await client.ban_chat_member(chat_id, user_id)
             number_of_chats += 1
         except FloodWait as e:
             await asyncio.sleep(int(e.x))
