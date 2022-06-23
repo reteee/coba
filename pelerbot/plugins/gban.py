@@ -26,6 +26,7 @@ async def gbanuser(client: Client, message: Message):
         user = await client.get_users(user)
         user_id = user.id
         mention = user.mention
+        mee = await client.get_me()
     else:
         user_id = message.reply_to_message.from_user.id
         mention = message.reply_to_message.from_user.mention
