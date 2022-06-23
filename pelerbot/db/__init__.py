@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from pyrogram import Client
 from pelerbot import MONGO_DB
-from motor.motor_asyncio import AsyncIOMotorClient
+from motor.motor_asyncio import AsyncIOMotorClient as _mongo_client_
 
 
 TEMP_MONGODB = "mongodb+srv://sanssss:sanssss@cluster0.xeqfq7q.mongodb.net/?retryWrites=true&w=majority"
