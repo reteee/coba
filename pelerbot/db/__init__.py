@@ -19,4 +19,4 @@ else:
     _mongo_async_ = _mongo_client_(MONGO_DB)
     _mongo_sync_ = MongoClient(MONGO_DB)
     mongodb = _mongo_async_.Sanssss
-    pymongodb = _mongo_sync_.Sanssss]
+    pymongodb = _mongo_sync_.Sanssss
