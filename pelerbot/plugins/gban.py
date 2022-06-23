@@ -15,7 +15,7 @@ from pelerbot.db.mongodatabase import (add_banned_user,
                                        remove_banned_user)
 from pelerbot.plugins.help import *
 
-
+BANNED_USERS = filters.user()
 
 @Client.on_message(filters.me & filters.command("gban", COMMAND_HANDLER))
 async def gbanuser(client: Client, message: Message):
