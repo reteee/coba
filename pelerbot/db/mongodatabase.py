@@ -4,7 +4,7 @@ gbansdb = mongodb.gban
 chatsdb = mongodb.chat
 userdb = mongodb.userstats
 usersdb = mongodb.tgusersdb
-
+blockeddb = mongodb.blockedusers
 
 
 
