@@ -40,7 +40,7 @@ async def gbanuser(client: Client, message: Message):
     served_chats = []
     chats = await get_served_chats()
     for chat in chats:
-        served_chats.append(int(chat["chat_id"]))
+        served_chats.append(int(chat["supergroup"]))
     time_expected = len(served_chats)
     time_expected = get_readable_time(time_expected)
     mystic = await message.reply_text(
@@ -82,7 +82,7 @@ async def gungabn(client: Client, message: Message):
     served_chats = []
     chats = await get_served_chats()
     for chat in chats:
-        served_chats.append(int(chat["chat_id"]))
+        served_chats.append(int(chat["supergroup"]))
     time_expected = len(served_chats)
     time_expected = get_readable_time(time_expected)
     mystic = await message.reply_text(
