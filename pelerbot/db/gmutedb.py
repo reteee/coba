@@ -1,6 +1,6 @@
-from pelerbot.db import db
+from pelerbot.db import mongodb
 
-gmuteh = db["GMUTE"]
+gmuteh = mongodb
 
 
 async def is_gmuted(sender_id):
