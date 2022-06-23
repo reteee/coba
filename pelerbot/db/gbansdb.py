@@ -1,6 +1,6 @@
 from pelerbot.db import mongodb
 
-gbansdb=mongodb
+gbansdb = mongodb.gban
 
 
 async def get_gbanned() -> list:
