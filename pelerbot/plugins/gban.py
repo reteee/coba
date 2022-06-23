@@ -31,7 +31,7 @@ async def gbanuser(client: Client, message: Message):
         mention = message.reply_to_message.from_user.mention
     if user_id == message.from_user.id:
         return await message.reply_text("`You want to gban yourself? How Fool!`")
-    elif user_id == client.id:
+    elif user_id == app.id:
         return await message.reply_text("`Should i block myself? Lol`")
     is_gbanned = await is_banned_user(user_id)
     if is_gbanned:
