@@ -37,17 +37,17 @@ async def gbanuser(client: Client, message: Message):
         return await message.reply_text("{0} is already **gbanned**".format(mention))
     if user_id not in BANNED_USERS:
         BANNED_USERS.add(user_id)
-    chats = []
-    chat = await client.iter_dialogs()
-    for dialog in chat:
-        chats.append(dialog.chat.id)
-    time_expected = len(chats)
+    served_chats = []
+    chats = await get_served_chats()
+    for chat in chats:
+        served_chats.append(int(chat["chat_id"]))
+    time_expected = len(served_chats)
     time_expected = get_readable_time(time_expected)
     mystic = await message.reply_text(
         "**Initializing Gobal Ban on {0}**\n\nExpected Time : {1}.".format(mention, time_expected)
     )
     number_of_chats = 0
-    for chat_id in chat:
+    for chat_id in served_chats:
         try:
             await client.ban_chat_member(chat_id, user_id)
             number_of_chats += 1
@@ -79,8 +79,8 @@ async def gungabn(client: Client, message: Message):
         return await message.reply_text("{0} is not **gbanned**".format(mention))
     if user_id in BANNED_USERS:
         BANNED_USERS.remove(user_id)
-    chats = []
-    chat = await clienr.iter_dialogs()
+    served_chats = []
+    chats = await clienr.iter_dialogs()
     for dialog in chat:
         chats.append(dialog.chat.id)
     time_expected = len(served_chats)
@@ -89,7 +89,7 @@ async def gungabn(client: Client, message: Message):
         "**Ungbanning {0}**\n\nExpected Time : {1}.".format(mention, time_expected)
     )
     number_of_chats = 0
-    for chat_id in chat:
+    for chat_id in served_chats:
         try:
             await client.unban_chat_member(chat_id, user_id)
             number_of_chats += 1
