@@ -47,18 +47,21 @@ async def gbanuser(client: Client, message: Message):
         "**Initializing Gobal Ban on {0}**\n\nExpected Time : {1}.".format(mention, time_expected)
     )
     number_of_chats = 0
-    for chat_id in served_chats:
-        try:
-            await client.ban_chat_member(chat_id, user_id)
-            number_of_chats += 1
-        except FloodWait as e:
-            await asyncio.sleep(int(e.x))
-        except Exception:
-            pass
-    await add_banned_user(user_id)
-    await message.reply_text(
-        "**Gbanned Successfully**\n\nBanned **{0}** from **{1}** chats.".format(mention, number_of_chats)
-    )
+    async for dialog in client.iter_dialogs():
+        if dialog.chat.type in ["supergroup", "group"]:
+            try:
+                for chat_id in served_chats:
+                    try:
+                        await client.ban_chat_member(chat_id, user_id)
+                    number_of_chats += 1
+                except FloodWait as e:
+                    await asyncio.sleep(int(e.x))
+               except Exception:
+                     pass
+       await add_banned_user(user_id)
+       await message.reply_text(
+           "**Gbanned Successfully**\n\nBanned **{0}** from **{1}** chats.".format(mention, number_of_chats)
+       )
 
     
 
