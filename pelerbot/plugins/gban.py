@@ -80,9 +80,9 @@ async def gungabn(client: Client, message: Message):
     if user_id in BANNED_USERS:
         BANNED_USERS.remove(user_id)
     served_chats = []
-    chats = await clienr.iter_dialogs()
-    for dialog in chat:
-        chats.append(dialog.chat.id)
+    chats =await get_served_chats()
+    for chat in chats:
+        served_chats.append(int(chat["chat_id"]))
     time_expected = len(served_chats)
     time_expected = get_readable_time(time_expected)
     mystic = await message.reply_text(
