@@ -53,11 +53,11 @@ async def gbanuser(client: Client, message: Message):
                 for chat_id in served_chats:
                     try:
                         await client.ban_chat_member(chat_id, user_id)
-                    number_of_chats += 1
-                except FloodWait as e:
-                    await asyncio.sleep(int(e.x))
-               except Exception:
-                     pass
+                            number_of_chats += 1
+                    except FloodWait as e:
+                        await asyncio.sleep(int(e.x))
+                    except Exception:
+                        pass
        await add_banned_user(user_id)
        await message.reply_text(
            "**Gbanned Successfully**\n\nBanned **{0}** from **{1}** chats.".format(mention, number_of_chats)
