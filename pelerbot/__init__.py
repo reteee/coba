@@ -112,9 +112,9 @@ STRING_SESSION50 = getenv("STRING_SESSION50", "")
 HELP_COMMANDS = {}
 
 call_py = PyTgCalls(Client)
-except Exception as e:
-    print(f"STRING_SESSION - {e}")
-    sys.exit()
+    except Exception as e:
+        print(f"STRING_SESSION - {e}")
+        sys.exit()
 
 
 def load_cmds(ALL_PLUGINS):
