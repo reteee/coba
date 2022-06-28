@@ -4,6 +4,7 @@ import requests
 import re
 import asyncio
 import importlib
+from pytgcalls import PyTgCalls
 from importlib import import_module
 from prettytable import PrettyTable
 from datetime import datetime
@@ -109,6 +110,11 @@ STRING_SESSION50 = getenv("STRING_SESSION50", "")
 
 
 HELP_COMMANDS = {}
+
+call_py = PyTgCalls(Client)
+except Exception as e:
+    print(f"STRING_SESSION - {e}")
+    sys.exit()
 
 
 def load_cmds(ALL_PLUGINS):
