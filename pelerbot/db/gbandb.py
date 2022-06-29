@@ -1,4 +1,4 @@
-from helpers.SQL import mongodb
+from pelerbot.db import mongodb
 
 gbun = mongodb.gbun
 
