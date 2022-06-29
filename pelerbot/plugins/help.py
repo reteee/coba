@@ -29,14 +29,14 @@ async def module_help(client: Client, message: Message):
         ac.align = "l"
         
 
-        for x in split_list(sorted(HELP_COMMANDS.keys()), 3):
+        for x in split_list(sorted(CMD_HELP.keys()), 3):
             ac.add_row([x[0], x[1] if len(x) >= 3 else None])
                
 
         await message.edit(f"```{str(ac)}```")
         
     if help_arg:
-        if help_arg in HELP_COMMANDS:
+        if help_arg in CMD_HELP:
             commands: dict = HELP_COMMANDS[help_arg]
             this_command = "**Help For Module**\n"
             this_command += heading.format(str(help_arg)).upper()
@@ -64,8 +64,8 @@ def add_command_help(module_name, commands):
     # Key will be group name
     # values will be dict of dicts of key command and value description
 
-    if module_name in HELP_COMMANDS.keys():
-        command_dict = HELP_COMMANDS[module_name]
+    if module_name in CMD_HELP.keys():
+        command_dict = CMD_HELP[module_name]
     else:
         command_dict = {}
 
@@ -74,4 +74,4 @@ def add_command_help(module_name, commands):
             if y is not x:
                 command_dict[x[0]] = x[1]
 
-    HELP_COMMANDS[module_name] = command_dict
+    CMD_HELP[module_name] = command_dict
