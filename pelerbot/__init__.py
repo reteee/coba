@@ -4,7 +4,6 @@ import requests
 import re
 import asyncio
 import importlib
-from pytgcalls import PyTgCalls
 from importlib import import_module
 from prettytable import PrettyTable
 from datetime import datetime
