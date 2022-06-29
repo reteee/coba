@@ -110,8 +110,3 @@ STRING_SESSION50 = getenv("STRING_SESSION50", "")
 
 
 CMD_HELP = {}
-
-call_py = PyTgCalls(Client)
-    except Exception as e:
-        print(f"STRING_SESSION - {e}")
-        sys.exit()
