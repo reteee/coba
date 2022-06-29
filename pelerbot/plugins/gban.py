@@ -1,6 +1,7 @@
 import asyncio
 from pyrogram import Client , filters
 from pyrogram.types import Message
+from pelerbot.db.gbandb import *
 from pelerbot.utils.basic import *
 from pelerbot import COMMAND_HANDLER
 from pelerbot.plugins.help import *
