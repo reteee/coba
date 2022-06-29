@@ -42,7 +42,7 @@ async def gbun_him(client: Client, message: Message):
         await gbun.edit("`Starting GBans Now!`")
         for devils in chat_dict:
         try:
-            await client.kick_chat_member(devils, int(userz.id))
+            await client.kick_chat_member(devils, userz.id)
             except:
                 failed += 1
         await gban_user(userz.id, reason)
