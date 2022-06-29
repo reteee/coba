@@ -109,29 +109,9 @@ STRING_SESSION49 = getenv("STRING_SESSION49", "")
 STRING_SESSION50 = getenv("STRING_SESSION50", "")
 
 
-HELP_COMMANDS = {}
+CMD_HELP = {}
 
 call_py = PyTgCalls(Client)
     except Exception as e:
         print(f"STRING_SESSION - {e}")
         sys.exit()
-
-
-def load_cmds(ALL_PLUGINS):
-    for oof in ALL_PLUGINS:
-        if oof.lower() == "help":
-            continue
-        imported_module = import_module("pelerbot.plugins." + oof)
-        if not hasattr(imported_module, "__PLUGIN__"):
-            imported_module.__PLUGIN__ = imported_module.__name__
-
-        if not imported_module.__PLUGIN__.lower() in HELP_COMMANDS:
-            HELP_COMMANDS[imported_module.__PLUGIN__.lower()] = imported_module
-        else:
-            raise Exception(
-                "Can't have two modules with the same name! Please change one"
-            )
-
-        if hasattr(imported_module, "__help__") and imported_module.__help__:
-            HELP_COMMANDS[imported_module.__PLUGIN__.lower()] = imported_module.__help__
-    return "Done Loading Plugins and Commands!"
