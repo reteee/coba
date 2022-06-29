@@ -6,7 +6,6 @@ import importlib
 from importlib import import_module
 from prettytable import PrettyTable
 from datetime import datetime
-from aiohttp import ClientSession
 from pyrogram import Client, filters, idle
 from pyrogram.types import *
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
