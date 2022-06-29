@@ -37,7 +37,7 @@ async def module_help(client: Client, message: Message):
         
     if help_arg:
         if help_arg in CMD_HELP:
-            commands: dict = HELP_COMMANDS[help_arg]
+            commands: dict = CMD_HELP[help_arg]
             this_command = "**Help For Module**\n"
             this_command += heading.format(str(help_arg)).upper()
 
