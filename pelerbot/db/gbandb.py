@@ -5,15 +5,20 @@ gbun = mongodb.gbun
 
 async def gban_user(user, reason="#GBanned"):
     user.id = int(user)
-    gbunned = await gbun.find_one({"user": user.id})
-    if gbunned:
+    gbuned = await gbun.find_one({"user": user.id})
+    if gbuned:
         return True
     else:
         await gbun.insert_one({"user": user.id, "reason": reason})
 
 
 async def ungban_user(user):
-    await gbun.delete_one({"user": user})
+    user.id = int(user)
+    ungbuned = await gbun.find_one({"user": user.id})
+    if ungbuned:
+        await gbun.delete_one({"user": user.id})
+    else
+        return False
 
 
 async def gban_list():
