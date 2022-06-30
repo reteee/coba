@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from pyrogram.types import message
+from pyrogram.types import Message
 from pelerbot import COMMAND_HANDLER
 from pelerbot.db.gbandb import *
 from pelerbot.utils.basic import *
