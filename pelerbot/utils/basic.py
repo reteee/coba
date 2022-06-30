@@ -8,6 +8,7 @@ from math import ceil
 from traceback import format_exc
 from typing import Tuple
 
+from pyrogram import enums
 from pyrogram import Client
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import (
@@ -90,6 +91,18 @@ async def iter_chats(client: Client):
     async for dialog in client.iter_dialogs():
         if dialog.chat.type in ["supergroup", "group"]:
             chats.append(dialog.chat.id)
+    return chats
+
+async def get_ma_chats(chat_types: list = [enums.ChatType.SUPERGROUP, enums.ChatType.CHANNEL], is_id_only=True):
+    chats = []
+    async for dialog in Client.iter_dialogs():
+        if dialog.chat.type in chat_types:
+            if is_id_only:
+                chats.append(dialog.chat.id)
+            else:
+                chats.append(dialog.chat)
+        else:
+            continue
     return chats
 
 
