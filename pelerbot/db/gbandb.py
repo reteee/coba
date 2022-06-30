@@ -17,7 +17,7 @@ async def ungban_user(user):
     ungbuned = await gbun.find_one({"user": user.id})
     if ungbuned:
         await gbun.delete_one({"user": user.id})
-    else
+    else:
         return False
 
     
