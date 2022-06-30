@@ -29,6 +29,24 @@ def split_list(input_list, n):
     return [input_list[i: i + n] for i in range(0, len(input_list), n)]
 
 
+def get_args(message):
+    try:
+        message = message.text
+    except AttributeError:
+        pass
+    if not message:
+        return False
+    message = message.split(maxsplit=1)
+    if len(message) <= 1:
+        return []
+    message = message[1]
+    try:
+        split = shlex.split(message)
+    except ValueError:
+        return message  # Cannot split, let's assume that it's just one long message
+    return list(filter(lambda x: len(x) > 0, split))
+
+
 def get_user(message: Message, text: str) -> [int, str, None]:
     """Get User From Message"""
     if text is None:
@@ -129,22 +147,3 @@ async def edit_or_send_as_file(
         return
     else:
         return await message.edit(text, parse_mode=parse_mode)
-
-
-    
-def get_args(message):
-    try:
-        message = message.text
-    except AttributeError:
-        pass
-    if not message:
-        return False
-    message = message.split(maxsplit=1)
-    if len(message) <= 1:
-        return []
-    message = message[1]
-    try:
-        split = shlex.split(message)
-    except ValueError:
-        return message  # Cannot split, let's assume that it's just one long message
-    return list(filter(lambda x: len(x) > 0, split))
