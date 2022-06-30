@@ -20,6 +20,15 @@ async def ungban_user(user):
     else
         return False
 
+    
+async def get_gban_reason(user):
+    user.id = int(user)
+    pr_gbanned = await gbun.find_one({"user": user.id})
+    if pr_gbanned:
+        return pr_gbanned["reason_for_gban"]
+    else:
+        return None
+
 
 async def gban_list():
     return [lo async for lo in gbun.find({})]
