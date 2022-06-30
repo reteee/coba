@@ -4,7 +4,12 @@ gbun = mongodb.gbun
 
 
 async def gban_user(user, reason="#GBanned"):
-    await gbun.insert_one({"user": user, "reason": reason})
+    user.id = int(user)
+    gbunned = await gbun.find_one({"user": user.id})
+    if gbunned:
+        return True
+    else:
+        await gbun.insert_one({"user": user.id, "reason": reason})
 
 
 async def ungban_user(user):
